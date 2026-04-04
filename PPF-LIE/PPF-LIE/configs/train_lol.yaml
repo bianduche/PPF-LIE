@@ -1,0 +1,76 @@
+# Training configuration for LOL dataset
+
+# Model configuration
+model:
+  name: PPFLIE
+  in_channels: 3
+  out_channels: 3
+  base_channels: 64
+  num_layers: 6
+  time_steps: 1000
+  beta_start: 0.0001
+  beta_end: 0.02
+
+# Diffusion configuration
+diffusion:
+  schedule: linear
+  loss_type: poisson_nll  # Key: Poisson NLL loss instead of L2
+  variance_schedule:
+    type: linear
+    beta_start: 0.0001
+    beta_end: 0.02
+
+# CCM (Color Consistency Module) configuration
+ccm:
+  enable: true
+  hidden_dim: 128
+  num_affine: 3
+
+# Training configuration
+train:
+  # Data paths
+  data_root: ./datasets/LOL
+  train_low_dir: LOL_v2/Synced_low
+  train_high_dir: LOL_v2/Synced_normal
+
+  # Data augmentation
+  img_size: 256
+  crop_size: 256
+  random_flip: true
+  rotation_degrees: 10
+
+  # Training parameters
+  batch_size: 8
+  num_workers: 4
+  epochs: 300
+  learning_rate: 0.0001
+  weight_decay: 0.0001
+  scheduler:
+    type: cosine
+    warmup_epochs: 5
+
+  # Loss weights
+  loss_weights:
+    diffusion: 1.0
+    perceptual: 0.1
+    color: 0.05
+    tv: 0.01
+
+  # Optimizer
+  optimizer:
+    type: adam
+    betas: [0.9, 0.999]
+    eps: 1.0e-08
+
+  # Logging
+  log_interval: 100
+  val_interval: 5
+  save_interval: 10
+
+  # Paths
+  checkpoint_dir: ./experiments/lol
+  log_dir: ./experiments/lol/logs
+
+# Hardware
+device: cuda
+seed: 42
