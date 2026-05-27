@@ -2,11 +2,7 @@
 
 <div align="center">
 
-**PPF-LIE: Physical Photon Field Driven Low-Light Enhancement for Multimodal Industrial Defect Recognition**
 
-*Yi Zhang, Jian Song, Xiyang Liu, Miaosen Yang*
-
-**School of Materials, Shanghai Dianji University, Shanghai, China**
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.8+-green.svg)](https://www.python.org/)
@@ -277,7 +273,7 @@ If you find this work helpful, please cite our paper:
 
 ---
 
-ML Dataes：通过网盘分享的文件：ML-Dataes
+## 📜 CML Dataes：通过网盘分享的文件：ML-Dataes
 链接: https://pan.baidu.com/s/1cjWTkVeTMEt98erGA1_6ww?pwd=j9bj 提取码: j9bj
 
 ## 📄 License
