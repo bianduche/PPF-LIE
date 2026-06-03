@@ -1,0 +1,63 @@
+# Test configuration
+
+# Model configuration
+model:
+  name: PPFLIE
+  in_channels: 3
+  out_channels: 3
+  base_channels: 64
+  num_layers: 6
+  time_steps: 1000
+
+# Testing configuration
+test:
+  # Model checkpoint
+  model_path: ./experiments/best_model.pth
+
+  # Data paths
+  datasets:
+    lol:
+      data_root: ./datasets/LOL
+      test_low_dir: LOL_v2/Test/Synced_low
+      test_high_dir: LOL_v2/Test/Synced_normal
+      output_dir: ./results/lol
+
+    sice:
+      data_root: ./datasets/SICE
+      test_dir: SICE_Dataset
+      output_dir: ./results/sice
+
+    ml:
+      data_root: ./datasets/ML
+      test_low_dir: test/low
+      test_high_dir: test/high
+      annotation_file: test/annotations.json
+      output_dir: ./results/ml
+
+  # Evaluation metrics
+  metrics:
+    - psnr
+    - ssim
+    - fsim
+    - lpips
+
+  # Additional evaluations
+  downstream_task:
+    enable: true
+    detector: yolo26
+    detection_model_path: ./experiments/yolo26_ml.pth
+    detection_output_dir: ./results/detection
+
+  zero_shot:
+    enable: true
+    vision_model: siglip2
+    activation_threshold: 0.2
+
+  # Visualization
+  save_enhanced: true
+  save_comparison: true
+  save_heatmaps: true
+  num_visual_samples: 20
+
+# Hardware
+device: cuda
