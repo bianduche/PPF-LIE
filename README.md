@@ -113,6 +113,14 @@ The **world's first** paired benchmark dataset for real industrial scenarios of 
 | Sample Count | 1200 paired images |
 | Defect Types | Micro-cracks, Porosities, Delamination |
 
+### Dataset Download
+
+| Dataset | Link | Password |
+|---------|------|----------|
+| **ML Dataset** | [Baidu Pan](https://pan.baidu.com/s/1cjWTkVeTMEt98erGA1_6ww) | `j9bj` |
+| LOL | https://daooshee.github.io/ROG/ | - |
+| SICE | https://github.com/csjcai/SICE | - |
+
 ### Public Datasets
 
 This project also evaluates on the following public datasets:
